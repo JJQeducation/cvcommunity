@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luxury AutoWash – Demo Website</title>
+
+<style>
+/* ---------- GENERAL STYLING ---------- */
+/* BODY BACKGROUND IMAGE WITH DARK OVERLAY */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+
+    /* Background image */
+    background: 
+        linear-gradient(
+            rgba(0,0,0,0.7),   /* Top dark overlay */
+            rgba(0,0,0,0.7)    /* Bottom dark overlay */
+        ),
+        url('car website pictures/images.jpeg');      /* Your background picture */
+
+    background-size: cover;     /* Make picture fit screen */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Parallax smooth effect */
+    
+    color: gold;
+}
+    
+header {
+    height: 300px;
+    background: linear-gradient(
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.8)
+    ), 
+    url('car website pictures/images.jpeg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: gold;
+    text-align: center;
+    border-bottom: 2px solid gold;
+
+    /* Shining black effect */
+    box-shadow: inset 0 0 50px black;
+}
+
+header h1 {
+    font-size: 45px;
+    margin: 0;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px black;
+}
+
+header p {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* WATERMARK AGAINST GBV */
+.watermark {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: purple;
+    opacity: 0.5;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 999;
+}
+
+/* NAVIGATION */
+nav {
+    background: #111;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    border-bottom: 2px solid gold;
+}
+
+nav a {
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: lightblue;
+}
+
+/* SECTION STYLING */
+section {
+    padding: 50px;
+}
+
+/* SERVICE BOXES */
+.service {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid gold;
+    padding-bottom: 30px;
+}
+
+.service img {
+    width: 50%;
+    border-radius: 12px;
+    border: 3px solid gold;
+}
+
+.service p {
+    width: 50%;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+/* FORM */
+form {
+    background: #111;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    margin: auto;
+    border: 2px solid gold;
+}
+
+form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid lightblue;
+    border-radius: 8px;
+}
+
+form button {
+    width: 100%;
+    padding: 15px;
+    background: gold;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background: lightblue;
+}
+
+/* SCROLL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.8s ease-in-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+
+<div class="watermark"><b>I Stand Against GBV ✊💜</b></div>
+
+<header>
+    <h1>Luxury AutoWash</h1>
+    <p>Because your car deserves premium care</p>
+</header>
+
+<nav>
+    <a href="#services">Services</a>
+    <a href="#booking">Book a Service</a>
+</nav>
+
+<!-- SERVICES -->
+<section id="services" class="reveal">
+    <h2>Our Premium Services</h2><br>
+
+    <!-- OUTSIDE WASH -->
+    <div class="service reveal">
+        <img src="car website pictures/images (1).jpeg" alt="Outside Wash">
+        <p><strong>Outside Wash:</strong><br>
+        A full exterior wash using high-pressure water, foam, and shine polish.  
+        Your car leaves looking <b>fresh, glossy, and brand-new</b>.</p> 
+    </div>
+
+    <!-- INTERIOR CLEAN -->
+    <div class="service reveal">
+        <img src="car website pictures/vci95f5uTDnY4U2ThLdxK2ABTAw9XvkP1671030463.jpg" alt="Interior Cleaning">
+        <p><strong>Interior Cleaning:</strong><br>
+        Complete vacuuming, dashboard wipe, seat refresh, and window cleaning.  
+        Keeps the car smelling good and hygienic for passengers.</p>
+    </div>
+
+    <!-- ENGINE WASH -->
+    <div class="service reveal">
+        <img src="car website pictures/pressure-wash-to-clean-engine-bay.webp" alt="Engine Wash">
+        <p><strong>Engine Wash:</strong><br>
+        Safe cleaning using low-pressure steam and degreaser.  
+        Helps prevent overheating and improves engine life.</p>
+    </div>
+</section>
+
+<!-- BOOK A SERVICE -->
+<section id="booking" class="reveal">
+    <h2>Book a Service</h2><br>
+    <form>
+        <input type="text" placeholder="Name & Surname" required>
+        <input type="text" placeholder="Phone Number" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Car Model (e.g. Polo Vivo, BMW 320i)" required>
+        <button type="submit">Submit Booking</button>
+    </form>
+</section>
+
+<script>
+// SCROLL REVEAL EFFECT
+window.addEventListener("scroll", function () {
+    let reveals = document.querySelectorAll(".reveal");
+    for (let i = 0; i < reveals.length; i++) {
+        let windowHeight = window.innerHeight;
+        let revealTop = reveals[i].getBoundingClientRect().top;
+        let revealPoint = 100;
+
+        if (revealTop < windowHeight - revealPoint) {
+            reveals[i].classList.add("active");
+        }
+    }
+});
+</script>
+
+</body>
+</html>
